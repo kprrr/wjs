@@ -1,0 +1,43 @@
+/*common css  公用样式*/
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+a{
+    color: #666;
+}
+a:hover{
+    color: #666;
+    text-decoration: none;
+}
+/*使用自定义字体图标*/
+@font-face {
+    font-family: wjs_font_icon;
+    src:
+    url(../fonts/MiFie-Web-Font.woff) format('woff'),
+    url(../fonts/MiFie-Web-Font.ttf) format('truetype'),
+    url(../fonts/MiFie-Web-Font.svg) format('svg'),
+    url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype');
+}
+/*定义使用字体的类*/
+.wjs_icon{
+    font-family: wjs_font_icon;
+}
+/*具体到图标的类*/
+/* 手机图标对应的编码 */
+.wjs_icon_phone::before{
+    content: "\e908";
+}
+/* 电话图标对应的编码 */
+.wjs_icon_tel::before{
+    content: "\e909";
+}
+/* wjs log */
+.wjs_icon_log::before{
+    content: "\e920";
+}
+/* wjs 文本 */
+.wjs_icon_text::before{
+    content:"\e93e";
+}
+
