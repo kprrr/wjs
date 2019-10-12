@@ -1,0 +1,2 @@
+1.transform: translateX(-50%) 水平居中
+translateX()函数表示在二维平面上水平方向移动元素。

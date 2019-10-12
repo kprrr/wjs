@@ -1,0 +1,143 @@
+1.浮动会让父元素的自动高度填充失效
+解决办法：给父元素ul 添加 clearfix
+
+2.文本基线 底部空隙 
+清除方式：1.设置为块元素
+		2.可以将文本的字体大小设置为0
+		3.vertical-align：bottom
+		
+3.> 的作用 
+
+4.span是什么元素
+通俗地讲就是如果里面还有其他标签的时候就用div，如果里面只有文本就应该用span
+div是一个块级元素，用来为HTML文档内大块的内容提供结构和背景
+
+span是行内元素，在行内定义一个区域（也就是一行内可以被<span>划分好几个区域）
+当需要span即有宽高属性（block），又需要放在同一行，就使用 display: inline-block;
+
+常见的块级元素有 DIV, FORM, TABLE, P, PRE, H1~H6, DL, OL, UL 等。
+常见的内联元素有 SPAN, A, STRONG, EM, LABEL, INPUT, SELECT, TEXTAREA, IMG, BR 等。
+5.background-color 属性
+transparent	默认。背景颜色为透明。
+
+6.比较width 与 offsetWidth 的区别
+6.1、offsetWidth > width
+element.offsetWidth = element.style.width + element.style.padding + element.style.border；（不包括margin）
+6.2、offsetWidth 属性仅仅可读，而style.width 是可写的；
+所以通常用 style.width用作进JavaScript中设置元素的宽度，而offsetWidth不可以。
+
+7.渐变色-水平渐变
+background:linear-gradient(to right,red,blue);
+
+8.手指对象的坐标值
+screenX/screenY是手指的触摸点相对于屏幕左上角的坐标距离
+clientX/clientY 相对于当前视口-移动端屏幕
+pageX/pageY 相当于当前页面的内容--会有滚动条--包含滚动条的
+
+9.touch事件的触发，必须保证元素有具体的宽高，如何宽或高为0，则不会触发。这时如果元素有浮动属性（left或者postion），需要清楚浮动
+
+10.定制化zepto
+10.1 cd zepto master目录
+10.2 修改make文件，target.build修改
+ modules = (env['MODULES'] || 'zepto event ajax form ie touch selector fx').split(' ')
+ 10.3 命令行在该目录下运行 npm run-script dist
+ 10.4 目录dist内zepto.min.js即是集成打包好的文件
+
+ 11.全屏页面的实现 
+ 即指内容不能超过viewport的大小
+ html,body{
+     width:100%;
+     height:100%;
+ }
+ .内容div{
+     width:100%;
+     height:100%;
+ }
+
+ 12.定位的特点
+ 定位是参照父容器来定位的，如果父容器是全屏的，所以高度也是参照父容器的高度
+
+ 13.category.css 中ct_hotCategory 无法使用 overflow: hidden 的原因
+使用 overflow: hidden的前提，需要确定该内容的宽高值，但此时获取不到毛衣数据
+的具体宽高，所以无效,所以此时需要使用 伸缩盒子 ,步骤(固定写法)：
+13.1 父容器 .ct_cRight {
+    display:flex;
+    //垂直放置
+    flex-direction:colunm;
+}
+13.2 内容 .ct_hotCategory{
+     overflow: hidden;
+    flex:1;
+}
+
+14.对于父容器做滑动操作,步骤：
+1.需要对父容器做相对定位，子容器做绝对定位
+父容器：{
+    position:relative;
+}
+自容器：{
+    position:absolute;
+    left:0;
+    top:0;
+}
+2.清楚滑动效果样式，以防滑动出现延迟
+3.使用top/left/right/bottom进行滑动操作
+
+15.移动端click事件延迟
+需求：
+15.1 在pc和移动端都能响应 --click
+15.2 不能点透 --click（因为click是同时响应，touch是优先响应）
+15.3 操作不能有延迟 -- touch
+使用fastclick：在pc端也能响应，解决延迟问题
+
+16.iscroll使用注意：
+16.1 当子元素浮动时，高度会变为0，此时iscroll滚动失效，需要给子元素清楚浮动，可以使用overflow:hidden
+16.2 iscroll的滚动条默认是相对于父容器，当父容器没有设置定位时，会一层一层网上找，直到根元素，所以如果想在上一级父容器出现滚动条，需要在上一级父容器增加定位：postion:relative
+
+17.媒体查询
+17.1 生效规则，当判断最小的值，并且从小到大进行判断（当满足条件的时候）：
+17.1.1 向上兼容：如果设置了宽度更小时的样式，默认这些样式也会传递到宽度更大的条件范围内
+17.1.2 向下覆盖：宽度更大的样式会将前面宽度更小的样式覆盖
+17.2 书写建议：
+17.2.1 如果是判断最小值（min-width），那么就应该从小到大写 -- bootstrap 就是判断最小值，从小到大写
+17.2.2 如果是判断最大值（max-width），那么就应该从大到小写
+
+18. min-width：在pc端和移动端能正常的响应，效果一致， 它是指当前可视区域的宽度
+    min-device-width：在移动端和期望值一样 device：设备。它是指当前设备的宽度，当拖动来改变浏览器大小的时候，当前设备的宽度不会变化，意味着媒体查询条件不会响应
+
+19.盒模型 border-box
+content-box：标准盒模型，CSS定义的宽高只包含content的宽高
+border-box：IE盒模型，CSS定义的宽高包括了content，padding和border
+19.1 浏览器兼容性,IE8及以上版本支持该属性，Firefox 需要加上浏览器厂商前缀-moz-，对于低版本的IOS和Android浏览器也需要加上-webkit-,如下：
+*, *:before, *:after {
+　　-moz-box-sizing: border-box;
+　　-webkit-box-sizing: border-box;
+　　box-sizing: border-box;
+　　}
+
+20 个人思考技术栈的使用：
+20.1 当页面需要同时呈现在PC和移动端时，可以考虑bootstrap+ES6实现
+20.2 当页面主要呈现在移动端时，可以vue+某个前端UI框架实现 
+需要了解下bootstrap-vue怎么样
+
+Bootstrap
+1.栅格系统，栅格系统就是来描述设置当前子元素在 指定屏幕 下占据 当前屏幕默认12等分中的n（1-12）等分
+步骤：1.1 先添加容器container/contain-fluid
+      1.2 在容器中添加row
+      1.3在row中添加子元素，设置栅格样式
+      1.4在子元素添加具体的内容
+等分划分：
+w<768px     12等分
+w:768~992   6等分
+w:992~1200  4等分
+w>1200      3等分
+
+2.列排序
+col-xs-offset-2 偏移的距离是以栅格作为单位，通过margin实现的，会影响其他元素，有可能造成后面的元素换行显示；
+col-xs-push-2 push(往后-右推)/pull（往前-左拉），他是通过定位来实现的，所以不会影响其他元素，但是有可能和其他元素重叠
+
+3.npm install -g less
+
+21.如何消除 子元素把父容器撑大
+使用定位
+
