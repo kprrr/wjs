@@ -1,0 +1,176 @@
+/* 定义变量-京东红 */
+@BaseColor: #e92322;
+
+/* 头部块样式 */
+.wjs_header {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+
+    .row {
+        text-align: center;
+        height: 100%;
+
+        > div:nth-of-type(-n+3) {
+            border-right: 1px solid #ccc;
+
+            >.wjs_code {
+                display: block;
+                position: relative;
+
+                >img {
+                    display: none;
+                    position: absolute;
+                    top: 49px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border: 1px solid #ccc;
+                    border-top: none;
+                    z-index: 999;
+                }
+
+                &:hover {
+                    >img {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        >div:last-of-type {
+            >.btn-danger {
+                background-color: @BaseColor;
+                border-color: @BaseColor;
+            }
+
+            >.btn:first-of-type {
+                padding: 3px 12px;
+            }
+
+            >.btn-link {
+                color: #333;
+
+                &:hover {
+                    text-decoration: none;
+
+                }
+            }
+        }
+    }
+}
+
+/* 导航条样式 */
+.wjs_nav {
+    &.navbar{
+        margin-bottom: 0px;
+    }
+    .wjs_brand {
+        height: 80px;
+        line-height: 50px;
+        font-size: 35px;
+
+        > span:first-of-type {
+            color: @BaseColor;
+        }
+
+        > span:last-of-type {
+            color: #333;
+        }
+    }
+    .navbar-nav{
+        > li{
+            > a{
+                line-height: 50px;
+                font-size: 16px;
+            }
+            > a:hover,a:focus {
+                color: #777;
+                border-bottom: 3px solid @BaseColor;
+            }
+        }
+        .active{
+            > a,a:hover,a:focus {
+                background-color: transparent;
+                border-bottom: 3px solid @BaseColor;
+            }
+        }
+    }
+    .navbar-toggle{
+        margin-top: 23px;
+    }
+
+
+
+}
+
+/* 轮播图 */
+/* 
+w<768px -- 移动端：图片会随着屏幕的缩小自动适应--缩小
+           img的宽度为100%，通过img标签来实现
+W>=768px： 图片作为背景，当屏幕宽度变宽的时候，会显示更多的图片的两边区域
+            1.background-image添加图片
+            2.添加background-position:center center
+            3.background-size:cover 
+*/
+.wjs_banner{
+    .imgPC {
+        display: block;
+        width: 100%;
+        height: 410px;
+        background-position: center center;
+        background-size: cover;
+
+    }
+    .imgMobile > img {
+        width: 100%;
+        display: block;
+    }
+}
+
+
+/* 信息块样式 */
+.wjs_info{
+    padding: 30px;
+    .wjs_icon{
+        font-size: 20px;
+    }
+    .row{
+        > div{
+            margin-top: 20px;
+            > a:hover{
+                color: @BaseColor;
+            }
+        }
+    }
+}
+
+/* 预约块样式 */
+.wjs_reverse{
+    .wjs_icon{
+        font-size: 20px;
+    }
+    .reverse_now{
+        color: @BaseColor;
+        border-bottom: 1px dashed @BaseColor;
+    }
+    a:hover{
+        color: @BaseColor;
+    }
+}
+
+/* 产品块样式 */
+/* 1.::after伪元素是哪儿
+2.box-shadow css */
+
+/* 宝 北 */
+/* 
+1.添加两个文本
+2.宝 北 两个字应该是一个整体，所以使用div包含
+3.添加两个字之后，不应该破坏之前的元素的布局，所以可以让div进行定位
+4.设置div的水平居中，垂直方向的偏移可以使用top实现
+5.添加文本的颜色和边框
+6.添加工具提示
+7.添加工具提示，可以修改类型为span
+8.工具提示会默认的生成一个新的div标签，只不过默认的文本显示会换行，原因是新添加的标签的宽度是参照父容器的
+9.应该将父容器div的宽度设置为100%
+10.记得对工具提示进行初始化 */

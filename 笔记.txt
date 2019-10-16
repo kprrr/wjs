@@ -127,10 +127,10 @@ Bootstrap
       1.3在row中添加子元素，设置栅格样式
       1.4在子元素添加具体的内容
 等分划分：
-w<768px     12等分
-w:768~992   6等分
-w:992~1200  4等分
-w>1200      3等分
+w<768px     12等分 xs
+w:768~992   6等分  sm
+w:992~1200  4等分  md
+w>1200      3等分  lg
 
 2.列排序
 col-xs-offset-2 偏移的距离是以栅格作为单位，通过margin实现的，会影响其他元素，有可能造成后面的元素换行显示；
@@ -138,6 +138,16 @@ col-xs-push-2 push(往后-右推)/pull（往前-左拉），他是通过定位�
 
 3.npm install -g less
 
-21.如何消除 子元素把父容器撑大
-使用定位
+21.使用图标的步骤：
+21.1 先定义一个基类 .wjs_icon{
+    font-family:wjs;
+}
+21.2 再定义一个对应的图标类： .wsj_icon_phone::before{
+    content:"\e908";
+}
 
+22.属性选择器,
+22.1 前面3个div
+div:nth-of-type(-n+3)
+22.2 偶数个div
+div:nth-of-type(even)
