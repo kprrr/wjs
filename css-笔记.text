@@ -34,3 +34,37 @@ blur：可选。图片和阴影之间的模糊距离，3px够用。
 spread:可选。阴影的尺寸。
 color:可选。阴影的颜色。请参阅 CSS 颜色值。
 inset:可选。将外部阴影 (outset) 改为内部阴影。
+
+7.（实心圆）给div添加圆角，或者半圆角。案例：wjs产品块
+&::before,&::after{
+                content: "";
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background-color: #eee;
+                position: absolute;
+                left: -5px;
+            }
+            &::before{
+                left: -5px;
+                top: -5px;
+                box-shadow: 0px -1px 1px #ddd inset;
+            }
+            &::after{
+                bottom: -5px;
+                box-shadow: 0px 1px 1px #ddd inset;
+            }
+（空心圆）
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+8.伪元素需要保证父元素有宽高值，如果没有的话就不能使用
+
+9.居中问题 案例（wjs 合作伙伴）：
+块级元素：margin:0;
+行级元素：text-align: center;如果是块级元素，需要设置
+display:inline-block  来改变成行级元素

@@ -52,4 +52,21 @@ $(function () {
             $('.carousel').carousel("next");
         }
     });
+
+    //初始化ul块长度信息
+    var wjs_product_url = $(".wjs_product ul");
+    var ulWidth = 0;
+    wjs_product_url.find("li").each(function(index,ele){
+        // console.log($(ele).outerWidth(true));
+        ulWidth = ulWidth+$(ele).outerWidth(true);
+    });
+    wjs_product_url.width(ulWidth);
+    var myScroll = new IScroll('.wjs_product_wrapper',{
+        scrollX: true, 
+        scrollY: false
+    });
+
+    //初始化 工具提示 插件
+    $('[data-toggle="tooltip"]').tooltip();
+   
 });

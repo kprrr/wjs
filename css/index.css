@@ -109,6 +109,11 @@ W>=768px： 图片作为背景，当屏幕宽度变宽的时候，会显示更�
   color: #e92322;
 }
 /* 预约块样式 */
+.wjs_reverse {
+  height: 94px;
+  line-height: 94px;
+  border: 1px solid #ccc;
+}
 .wjs_reverse .wjs_icon {
   font-size: 20px;
 }
@@ -122,6 +127,131 @@ W>=768px： 图片作为背景，当屏幕宽度变宽的时候，会显示更�
 /* 产品块样式 */
 /* 1.::after伪元素是哪儿
 2.box-shadow css */
+.wjs_product {
+  /* clear: both; */
+  padding-top: 20px;
+  background-color: #f5f5f5;
+}
+.wjs_product .wjs_product_wrapper {
+  overflow: hidden;
+}
+.wjs_product .nav-tabs > ul {
+  width: 100%;
+}
+.wjs_product .nav-tabs > li {
+  margin: auto 10px;
+  font-size: 15px;
+}
+.wjs_product .nav-tabs > li.active > a {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #e92322;
+}
+.wjs_product .nav-tabs > li > a,
+.wjs_product .nav-tabs > li a:hover,
+.wjs_product .nav-tabs > li a:focus {
+  background-color: transparent;
+  text-decoration: none;
+}
+.wjs_product .nav-tabs > li > a:hover,
+.wjs_product .nav-tabs > li a:focus {
+  border-bottom: 3px solid #e92322;
+}
+.wjs_product .content_row > div {
+  padding: 0;
+}
+.wjs_product .wjs_product_detail {
+  margin: 15px;
+  background-color: #fff;
+  position: relative;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_left {
+  margin-right: 100px;
+  padding: 5px 0 5px 10px;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_left > p {
+  font-size: 16px;
+  text-align: center;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_left .row {
+  margin-right: -9px;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_left .row > div:nth-of-type(even) > p {
+  text-align: right;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right {
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 8px;
+  border-left: 1px dashed #ccc;
+  text-align: center;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right > b {
+  font-size: 60px;
+  color: #e92322;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right > sub {
+  bottom: 0;
+  color: #e92322;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right::before,
+.wjs_product .wjs_product_detail .wjs_product_detail_right::after {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #eee;
+  position: absolute;
+  left: -5px;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right::before {
+  left: -5px;
+  top: -5px;
+  box-shadow: 0px -1px 1px #ddd inset;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right::after {
+  bottom: -5px;
+  box-shadow: 0px 1px 1px #ddd inset;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right .bao {
+  width: 100%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right .bao > span {
+  font-size: 5px;
+  cursor: pointer;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right .bao > span:first-of-type {
+  color: #e92322;
+  border: 1px solid #e92322;
+}
+.wjs_product .wjs_product_detail .wjs_product_detail_right .bao > span:last-of-type {
+  color: blue;
+  border: 1px solid blue;
+}
+.wjs_product .wjs_product_detail.active {
+  background-color: #e92322;
+  color: #fff;
+}
+.wjs_product .wjs_product_detail.active .wjs_product_detail_left::before {
+  content: "\e915";
+  font-family: "wjs";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wjs_product .wjs_product_detail.active b {
+  color: #fff;
+}
+.wjs_product .wjs_product_detail.active sub {
+  color: #fff;
+}
 /* 宝 北 */
 /* 
 1.添加两个文本
@@ -132,5 +262,104 @@ W>=768px： 图片作为背景，当屏幕宽度变宽的时候，会显示更�
 6.添加工具提示
 7.添加工具提示，可以修改类型为span
 8.工具提示会默认的生成一个新的div标签，只不过默认的文本显示会换行，原因是新添加的标签的宽度是参照父容器的
-9.应该将父容器div的宽度设置为100%
+9☆.应该将父容器div的宽度设置为100% 
 10.记得对工具提示进行初始化 */
+.wjs_news {
+  padding: 20px;
+}
+.wjs_news .tittle {
+  padding: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+}
+.wjs_news .tittle::after {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  position: absolute;
+  bottom: -5px;
+  right: -8px;
+}
+.wjs_news .line {
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 50px;
+  top: 0;
+  border-left: 1px dashed #e92322;
+}
+.wjs_news .nav-tabs {
+  border-bottom: none;
+  /* 使用媒体传讯设置w在768~992之间的li元素的样式 */
+  /* 使用媒体传讯设置w<768li元素的样式 */
+}
+.wjs_news .nav-tabs > li > a {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.wjs_news .nav-tabs > li > a > span {
+  font-size: 35px;
+  text-align: center;
+  color: #fff;
+}
+.wjs_news .nav-tabs > li > a:hover,
+.wjs_news .nav-tabs > li a:focus {
+  background-color: #e92322;
+}
+.wjs_news .nav-tabs > li.active > a,
+.wjs_news .nav-tabs > li.active a:hover,
+.wjs_news .nav-tabs > li.active a:focus {
+  background-color: #e92322;
+  border: none;
+}
+.wjs_news .nav-tabs > li:last-of-type {
+  margin-bottom: -25px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .wjs_news .nav-tabs > li {
+    margin: 15px 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wjs_news .nav-tabs > li {
+    margin: 15px 0;
+    width: 25%;
+  }
+}
+.wjs_news .tab-content .wjs_news_content {
+  list-style: none;
+}
+.wjs_news .tab-content .wjs_news_content > li {
+  line-height: 60px;
+}
+.wjs_partner {
+  background-color: #fff;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+.wjs_partner ul {
+  display: inline-block;
+  list-style: none;
+}
+.wjs_partner ul .wjs_icon {
+  font-size: 70px;
+}
+.wjs_partner ul > li {
+  margin-left: 15px;
+  float: left;
+}
+.wjs_partner ul > li > a:hover,
+.wjs_partner ul > li a:focus {
+  color: #e92322;
+}

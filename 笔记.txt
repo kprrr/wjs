@@ -137,6 +137,7 @@ col-xs-offset-2 偏移的距离是以栅格作为单位，通过margin实现的�
 col-xs-push-2 push(往后-右推)/pull（往前-左拉），他是通过定位来实现的，所以不会影响其他元素，但是有可能和其他元素重叠
 
 3.npm install -g less
+4.bootstrap的栅格class中已经自带定位样式，案例：wjs新闻块加虚线时，不用再手动给父元素添加定位
 
 21.使用图标的步骤：
 21.1 先定义一个基类 .wjs_icon{
